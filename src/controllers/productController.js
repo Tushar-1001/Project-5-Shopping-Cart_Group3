@@ -124,7 +124,7 @@ const productCreation = async function(req, res) {
 
             //using array.isArray function to check the value is array or not.
             if (Array.isArray(sizesArray)) {
-                newProductData['availableSizes'] = sizesArray
+                newProductData['availableSizes'] = [...new Set(sizesArray)]
             }
         }
         const saveProductDetails = await productModel.create(newProductData)
