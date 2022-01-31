@@ -184,7 +184,7 @@ const getAllProducts = async function(req, res) {
                 if (priceLessThan <= 0) {
                     return res.status(400).send({ status: false, message: `priceLessThan should be a valid number` })
                 }
-               if (!Object.prototype.hasOwnProperty.call(filterQuery, 'price'))
+               if (!filterQuery.hasOwnProperty('price'))
                     filterQuery['price'] = {}
                 filterQuery['price']['$lte'] = Number(priceLessThan)
                     //console.log(typeof Number(priceLessThan))
